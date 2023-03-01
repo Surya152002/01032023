@@ -1,23 +1,44 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>tracker</title>
-        <link rel="stylesheet" href="css/layout.css" type="text/css">
-    
-    </head>
-    <body>
-        <h2>Project for Finding the Seating Orientation of a user without using External Sensors</h2>
+<head>
+	<title>Beta Sensor Value</title>
+	<style>
+		#sensorCanvas {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="sensorCanvas"></canvas>
 
-       <!--         <img src="http://www.jeep.com/assets/images/vehicles/2015/cherokee/vlp/mod-exterior-360/frame-1.jpg" width="512" height="512" id="cd" /> -->
-        <canvas id="myCanvas" width="800" height="400" style="border:1px solid #d3d3d3;"></canvas>
-<!--         Select Voice: <select id='voiceList'></select> <br><br> -->
+	<script>
+		// Get the canvas element
+		const canvas = document.getElementById("sensorCanvas");
 
-   
+		// Get the 2D context of the canvas
+		const ctx = canvas.getContext("2d");
 
-   
-        
-        <script type="text/javascript" src="script.js"></script>
-    </body>
+		// Set the font style for displaying text
+		ctx.font = "20px Arial";
+
+		// Function to update the canvas with the sensor data
+		function updateCanvas(beta) {
+			// Clear the canvas
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+			// Display the beta value on the canvas
+			ctx.fillText(`Beta value: ${beta}`, 10, 50);
+		}
+
+		// Event listener for device orientation change
+		window.addEventListener("deviceorientation", (event) => {
+			// Get the beta value from the sensor data
+			const beta = event.beta;
+
+			// Update the canvas with the beta value
+			updateCanvas(beta);
+		});
+	</script>
+</body>
 </html>
