@@ -4,7 +4,7 @@
 	<title>Beta Sensor Value</title>
 	<style>
 		#sensorCanvas {
-			width: 100%;
+			width: 50%;
 			height: 100%;
 		}
 	</style>
@@ -28,7 +28,15 @@
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 			// Display the beta value on the canvas
-			ctx.fillText("Beta value:"+ Math.round(event.beta), 10, 50);
+			ctx.fillText("Beta value:"+ Math.round(event.beta), 10, 150);
+
+			 if(Math.round(event.beta)<94 && (event.beta)>=80    )
+    			{
+        
+                    		ctx.fillText("Orientation of Seating:" + "Proper Seating Mode",10,190);
+                        
+               
+    				}
 		}
 
 		// Event listener for device orientation change
