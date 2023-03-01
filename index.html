@@ -30,10 +30,17 @@
 			// Display the beta value on the canvas
 			ctx.fillText("Beta value:"+ Math.round(event.beta), 10, 40);
 
-			 if(Math.round(event.beta)<94 && (event.beta)>=80    )
+			 if(Math.round(event.beta)<80    )
     			{
         
-                    		ctx.fillText("Orientation of Seating:" + "Proper Seating Mode",10,80);
+                    		ctx.fillText("Orientation of Seating:" + "Proper Seating Mode",10,120);
+                        
+               
+    				}
+			if(Math.round(event.beta)>0    )
+    			{
+        
+                    		ctx.fillText("User Started using Application",10,80);
                         
                
     				}
